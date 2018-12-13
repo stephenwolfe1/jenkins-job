@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'ENV_FOO', defaultValue: 'Bar',  description: 'This is a parameter')
+    }
+
+    stages {
+        stage('Deploy') {
+            steps {
+                script {
+                if ( false ) {
+                sh '''
+                    # Run some commands
+                    '''
+                } else {
+                    echo "Skipped deploy"
+                }
+                }
+            }
+        }
+    }
+}
