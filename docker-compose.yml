@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  deployer:
+    image: jenkins-job:${TAG}
+    network_mode: host  # To be able to hit localhost Jenkins when testing
+    environment:
+      JENKINS_USER: "user"
+      JENKINS_TOKEN: "${JENKINS_TOKEN}"
+      JENKINS_URI: "http://localhost:80"
+      JENKINS_JOB: "sample-deployer"
+      PARAMETER_ENV_FOO: "not-bar"
+
+#  export TAG=latest
+#  export JENKIS_TOKEN=xxxx
+#  docker-compose up --force-recreate
